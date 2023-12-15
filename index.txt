@@ -39,19 +39,16 @@ function deencode(input) {
     const ans = [];
 
     for (let i = 0; i < input.length; i++) {
-        console.log(i, input[i], linear.length - 1)
         for (let j = 1; j < linear.length; j++) {
             if (input[i] == linear[j] && j % 2 == 1) {
                 ans.push(linear[26 - j]);
                 break;
             } else if (input[i] == linear[j] && (j % 2 == 0 && input[i + 1] == linear[27 - j])) {
                 ans.push(linear[j]);
-                console.log(i, j, input[i + 1], linear[27 - j])
                 i++;
                 break;
             } else if (input[i] == linear[j] && (j % 2 == 0)) {
                 ans.push(linear[27 - j]);
-                console.log(i, j)
                 break;
             }
         }
